@@ -2,23 +2,28 @@
 
  var gameModule = (function() {
 
-  <!--全域變數      module -->
+  //全域變數      module 
 
   var timeoutVar,
       counter = 0; 
 
 
-  function start(){
-        var canvas = document.getElementById('game'),
-            ctx = canvas.getContext('2d'),
 
+ var canvas = document.getElementById('game'),
+            ctx = canvas.getContext('2d');
+
+ canvas.width = 480;
+        canvas.height = 320;
+
+
+  function start(){
+       
 
             ballX = Math.floor(Math.random() * 300), // 0..300
             ballY = Math.floor(Math.random() * 500),
             ballR = Math.floor(Math.random() * 100);
 
-        canvas.width = 480;
-        canvas.height = 320;
+       
 
         ctx.fillStyle = 'black';
         ctx.beginPath();
