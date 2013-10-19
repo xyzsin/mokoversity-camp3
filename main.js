@@ -1,5 +1,9 @@
 
-(function() {
+
+ var gameModule = (function() {
+
+
+  function start(){
         var canvas = document.getElementById('game'),
             ctx = canvas.getContext('2d'),
 
@@ -15,4 +19,15 @@
         ctx.beginPath();
         ctx.arc(ballX, ballY, ballR, 0, Math.PI * 2 , true);
         ctx.fill();
+
+
+        }
+
+
+        return {
+
+          ball: start
+        }
 }) ();
+
+ gameModule.ball();
