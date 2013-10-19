@@ -2,6 +2,11 @@
 
  var gameModule = (function() {
 
+  <!--全域變數      module -->
+
+  var timeoutVar,
+      counter = 0; 
+
 
   function start(){
         var canvas = document.getElementById('game'),
@@ -19,6 +24,17 @@
         ctx.beginPath();
         ctx.arc(ballX, ballY, ballR, 0, Math.PI * 2 , true);
         ctx.fill();
+     
+if(counter >= 10){
+
+}else{
+
+  timeoutVar = setTimeout(start, 1000);
+  counter = counter + 1;
+
+ console.log("Counter: " + counter);
+}
+
 
 
         }
@@ -27,7 +43,9 @@
         return {
 
           ball: start
+          
         }
 }) ();
 
  gameModule.ball();
+ 
