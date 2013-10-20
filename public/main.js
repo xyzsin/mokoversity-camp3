@@ -9,7 +9,9 @@
 
       ballX,
       ballY,
-      ballR;
+      ballR,
+
+      scores;
 
 
 
@@ -24,13 +26,16 @@
 
                 if(tmp < ballR * ballR){
 
-                  console.log("Hit Good");
+                 scores = scores + (100 - ballR);
+                 console.log("Hit ! Your scores: " + scores);
                 }
         }
 
 
 
 function start(){
+
+  scores = 0;
   document.getElementById("main").addEventListener("click",touchEvent,false);
   startGame();
   }
@@ -39,7 +44,7 @@ function start(){
 
   function startGame(){
         var canvas = document.getElementById('game'),
-            ctx = canvas.getContext('2d'),
+            ctx = canvas.getContext('2d');
 
 
            ballX = Math.floor(Math.random() * 600); // 0..300
@@ -71,7 +76,13 @@ if(counter >= 10){
 
 function gameOver(){
 
-  console.log("Counter: " + counter);
+   console.log("Final: " + scores);
+
+// API: http://127.0.0.1:3000/scores?scores=500
+        var api = "http://127.0.0.1:3000/scores?scores=" + scores;
+
+        $.ajax({ url: api});
+
 }
 
         return {
