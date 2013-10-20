@@ -9,21 +9,37 @@
 
 
 
- var canvas = document.getElementById('game'),
-            ctx = canvas.getContext('2d');
-
- canvas.width = 480;
-        canvas.height = 320;
 
 
-  function start(){
-       
+
+ function touchEvent(evt) {
+                var x = evt.clientX,
+                    y = evt.clientY;
+
+                console.log("Clicked: " + x + " , " + y);
+        }
+
+
+
+
+function start(){
+  document.getElementById("main").addEventListener("click",touchEvent,false);
+  startGame();
+  }
+
+
+
+  function startGame(){
+        var canvas = document.getElementById('game'),
+            ctx = canvas.getContext('2d'),
+
 
             ballX = Math.floor(Math.random() * 300), // 0..300
             ballY = Math.floor(Math.random() * 500),
             ballR = Math.floor(Math.random() * 100);
 
-       
+        canvas.width = 480;
+        canvas.height = 320;
 
         ctx.fillStyle = 'black';
         ctx.beginPath();
@@ -31,19 +47,23 @@
         ctx.fill();
      
 if(counter >= 10){
+  gameOver();
 
 }else{
 
-  timeoutVar = setTimeout(start, 1000);
+  timeoutVar = setTimeout(startGame, 1000);
   counter = counter + 1;
 
- console.log("Counter: " + counter);
+
 }
-
-
 
         }
 
+
+function gameOver(){
+
+  console.log("Counter: " + counter);
+}
 
         return {
 
