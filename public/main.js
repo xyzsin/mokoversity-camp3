@@ -1,6 +1,7 @@
 
 
- var gameModule = (function() {
+ var gameModule = (function(document, $) {
+  "use strict";
 
   //全域變數      module 
 
@@ -90,7 +91,7 @@ function gameOver(){
           ball: start
           
         }
-}) ();
+}) (document, $);
 
  gameModule.ball();
  
