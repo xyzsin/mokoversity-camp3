@@ -26,7 +26,6 @@
 
                   console.log("Hit Good");
                 }
-
         }
 
 
@@ -43,12 +42,12 @@ function start(){
             ctx = canvas.getContext('2d'),
 
 
-            ballX = Math.floor(Math.random() * 300), // 0..300
-            ballY = Math.floor(Math.random() * 500),
-            ballR = Math.floor(Math.random() * 100);
+           ballX = Math.floor(Math.random() * 600); // 0..300
+           ballY = Math.floor(Math.random() * 450);
+           ballR = Math.floor(Math.random() * 80);
 
-        canvas.width  =  480;
-        canvas.height = 320;
+        canvas.width = 640;
+        canvas.height = 480;
 
         ctx.fillStyle = 'black';
         ctx.beginPath();
@@ -61,7 +60,7 @@ if(counter >= 10){
 
 }else{
 
-  timeoutVar = setTimeout(startGame, 1000);
+  timeoutVar = setTimeout(startGame, 2000);
   counter = counter + 1;
 
 
